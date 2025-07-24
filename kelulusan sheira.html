@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cek Kelulusan</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+h1 {
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    padding: 15px 30px;
+    background-color: hsl(214, 40%, 48%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1c3858;
+}
+
+#hasil {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #333;
+    font-size: 18px;
+}
+    </style>
+    </head>
+    <body>
+        <h1>Cek Kelulusan</h1>
+        <label for="nilai">Nilai:</label>
+        <input type="number" id="nilai">
+        <br>
+        <label for="ketidakhadiran">Jumlah Ketidakhadiran:</label>
+        <input type="number" id="ketidakhadiran">
+        <br>
+        <button onclick="cekKelulusan()">Cek</button>
+        <p id="hasil"></p>
+    
+        <script>
+        function cekKelulusan() {
+    // Ambil nilai dari input
+    let nilai = document.getElementById("nilai").value;
+    let ketidakhadiran = document.getElementById("ketidakhadiran").value;
+
+    // Konversi nilai input menjadi angka
+    nilai = parseInt(nilai);
+    ketidakhadiran = parseInt(ketidakhadiran);
+
+    // Cek kondisi kelulusan
+    if (nilai < 75 && ketidakhadiran > 5) {
+        document.getElementById("hasil").textContent = "Anda tidak lulus";
+    } else {
+        document.getElementById("hasil").textContent = "Anda lulus";
+    }
+}
+
+        </script>
+    </body>
+    </html>
