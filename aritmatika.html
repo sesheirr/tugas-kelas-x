@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .calculator {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        input, select, button {
+            margin: 10px 0;
+            padding: 5px;
+            font-size: 16px;
+        }
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Aritmatika Kalkulator</h2>
+        <input type="number" id="num1" placeholder="Masukan bilangan 1">
+        <select id="operation">
+            <option value="+">+ (Penjumlahan)</option>
+            <option value="-">- (Pengurangan)</option>
+            <option value="*">× (Perkalian)</option>
+            <option value="/">÷ (Pembagian)</option>
+            <option value="%">% (Modulus)</option>
+            <option value="^">^ (Eksponen)</option>
+        </select>
+        <input type="number" id="num2" placeholder="Masukan bilangan 2">
+        <br>
+        <button onclick="hitung()">Hitung</button>
+        <div id="Hasil"></div>
+    </div>
+
+    <script>
+        function hitung() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const operation = document.getElementById('operation').value;
+            let Hasil;
+
+            if (operation === '+') {
+                Hasil = num1 + num2;
+            } else if (operation === '-') {
+                Hasil = num1 - num2;
+            } else if (operation === '*') {
+                Hasil = num1 * num2;
+            } else if (operation === '/') {
+                Hasil = num1 / num2;
+            } else if (operation === '%') {
+                Hasil = num1 % num2;
+            } else if (operation === '^') {
+                Hasil = Math.pow(num1, num2);
+            }
+
+            document.getElementById('Hasil').innerHTML = `Hasil: ${Hasil}`;
+        }
+    </script>
+</body>
+</html>
